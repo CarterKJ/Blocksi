@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+​
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Blocksi Conference</title>
+​
+  <style>
+    body { margin:0; background:#eff3fe; overflow-y: hidden; }
+    .fullscreen01 { text-align:center; }
+    .fullscreen01 video { height: 100vh !important; max-width: 100% !important; 
+      
+    -webkit-box-shadow: 0px 0px 36px 0px rgba(68,119,242,0.39);
+    -moz-box-shadow: 0px 0px 36px 0px rgba(68,119,242,0.39);
+    box-shadow: 0px 0px 36px 0px rgba(68,119,242,0.39);
+     }
+      
+    footer { width: 100%; position: fixed; bottom: 0; height: 40px; margin-bottom: 10px; text-align:center; z-index: 9999; }      
+    #muteBtn, #unmuteBtn, #muteVideoBtn, #unmuteVideoBtn, #micDisabled { border:none; cursor: pointer; background: none; width: 40px; height:40px; opacity: 0.8;  }
+      #muteBtn:hover, #unmuteBtn:hover, #muteVideoBtn:hover, #unmuteVideoBtn:hover { opacity: 1;  }
+      #muteBtn:focus, #unmuteBtn:focus, #muteVideoBtn:focus, #unmuteVideoBtn:focus { outline: 0;  }
+      #micDisabled { opacity: 0.5; background-image: url("../images/micOff.svg"); background-repeat: no-repeat; float: left; margin-left: -20px; }
+    #muteBtn { background-image: url("../images/micOn.svg"); background-repeat: no-repeat; float: left; margin-left: -20px; }
+    #unmuteBtn { background-image: url("../images/micOff.svg"); background-repeat: no-repeat; float: left; margin-left: -20px; }
+    #muteVideoBtn { background-image: url("../images/camOn.svg"); background-repeat: no-repeat;  margin-top: -40px; float: left; margin-left: 37px; }
+    #unmuteVideoBtn { background-image: url("../images/camOff.svg"); background-repeat: no-repeat;  margin-top: -40px; float: left; margin-left: 37px;}
+    #noCameraImg { background-image: url("../images/nocam.svg"); background-repeat: no-repeat; width: 100vw; height: 100vh; background-position: center center; }
+      
+      footer article { display: inline-block; width: 60px;  }
+      #micTxt { background: rgba(0,0,0,0.7); color:white; border-radius: 20px; padding: 7px 14px 8px 14px; position: absolute; font-size: 15px;
+          font-family: Verdana, Geneva, sans-serif; top: -62px; margin-left: -80px; letter-spacing: -0.2px; display:none; 
+       -webkit-animation: fadein 0.2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.2s; /* Firefox < 16 */
+        -ms-animation: fadein 0.2s; /* Internet Explorer */
+         -o-animation: fadein 0.2s; /* Opera < 12.1 */
+            animation: fadein 0.2s;
+      }
+
+      #micDisabledTxt { background: rgba(0,0,0,0.7); color:white; border-radius: 20px; padding: 7px 14px 8px 14px; position: absolute; font-size: 15px;
+          font-family: Verdana, Geneva, sans-serif; top: -62px; margin-left: -70px; letter-spacing: -0.2px; display:none; 
+       -webkit-animation: fadein 0.2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.2s; /* Firefox < 16 */
+        -ms-animation: fadein 0.2s; /* Internet Explorer */
+         -o-animation: fadein 0.2s; /* Opera < 12.1 */
+            animation: fadein 0.2s;
+      }
+
+      #camTxt { background: rgba(0,0,0,0.7); color:white; border-radius: 20px; padding: 7px 14px 8px 14px; position: absolute; font-size: 15px;
+          font-family: Verdana, Geneva, sans-serif; top: -62px; margin-left: -25px; letter-spacing: -0.2px; display:none; 
+       -webkit-animation: fadein 0.2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.2s; /* Firefox < 16 */
+        -ms-animation: fadein 0.2s; /* Internet Explorer */
+         -o-animation: fadein 0.2s; /* Opera < 12.1 */
+            animation: fadein 0.2s;
+      }
+
+    @keyframes fadein { from { opacity: 0; top: -52px; } to { opacity: 1; top: -62px; } }
+    @-moz-keyframes fadein { from { opacity: 0; top: -52px; } to { opacity: 1; top: -62px; } }
+    @-webkit-keyframes fadein { from { opacity: 0; top: -52px; } to { opacity: 1; top: -62px; } }
+    @-ms-keyframes fadein { from { opacity: 0; top: -52px; } to { opacity: 1; top: -62px; } }
+    @-o-keyframes fadein { from { opacity: 0; top: -52px; } to { opacity: 1; top: -62px; } }
+      
+    #raisehand { display: inline-block; height: 44px; margin-left: 20px; position: absolute; width: 143px; border-radius: 30px; cursor: pointer; background: dimgray; }   
+        #raisehand:hover { background: #7a7a7a; }
+            #raisehand p { margin: 14px 0 0 12px; color: lightgray; float: left; height: 30px; font-size: 14px; }
+            #raisehand p span { margin-right: 14px; transform-origin: 70% 70%; }
+
+    .wave {
+        
+        background-image: url('../images/wave.svg'); width:20px; height:20px; float:left;
+        animation-name: wave-animation;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        transform-origin: 70% 70%;
+        display: inline-block;
+    }
+
+@keyframes wave-animation {
+    0% { transform: rotate(  0.0deg);  }
+   10% { transform: rotate(-20.0deg); }
+   20% { transform: rotate( 12.0deg) }
+   30% { transform: rotate(-20.0deg) }
+   40% { transform: rotate(  9.0deg) }
+   50% { transform: rotate(  0.0deg); }
+  100% { transform: rotate(  0.0deg); }
+}
+  </style>
+</head>
+​
+<body>
+​   
+    <footer>
+        <article>
+        <button id="muteBtn" style="display: none;"></button> <p id="micTxt">Toggle your audio</p>
+        <button id="unmuteBtn" style="display:none;"></button>
+        <button id="micDisabled" style="display: none;"></button> <p id="micDisabledTxt">Audio disabled</p>
+        <button id="muteVideoBtn" style="display: none;"></button><p id="camTxt">Toggle your video</p>
+        <button id="unmuteVideoBtn" style="display: none;"></button>
+        </article>
+        <div id="raisehand"><p><span class="wave"></span>Raise hand</p></div>
+    </footer>
+    <div id="noCameraImg" style="display: none;"></div>
+    <div class="fullscreen01">
+        <div id="audiopreview"></div>
+        <div id="videopreview"></div>
+    </div>
+
+  <script src="../scripts/conference.js"></script>
+</body>

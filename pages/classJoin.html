@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+​
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Blocksi - Join Distance Learning</title>
+​
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+          
+        body { margin: 0; font-family: 'Arial', 'Helvetica', sans-serif; background: #effcf4;  }
+        header { width: 100%; height: 50px; background: #1CAF53; margin: -20px 0 0 0; }
+          header section, .classes section { width: 1020px; margin: 0 auto; }
+            header section img { float: left; margin: 10px 0 0 0; }
+            header section h1 { color: white; font-family: 'Poppins', sans-serif; font-size: 1.25em; font-weight: 300; float: left; letter-spacing: 0.2px; margin: 11px 0 0 16px; }
+          
+          .classes { padding-top: 44px; }
+            .classes section span {  display: grid; grid-template-columns: 1fr auto; }
+            .classes section span h1 { margin: 0; color: #458c5f; font-weight: 500; font-size: 24px; }
+            .classes section span p { color: #458c5f; font-size: 14px; margin: 5px 0 0 3px; letter-spacing: 0.4px; }
+            .classes section span div p { text-align: right; font-size: 12px; margin: 0 0 5px 0; }
+          
+            .classes section span div input { font-size: 14px; padding: 6px 10px; border-radius: 5px 0 0 5px; border: 1px solid #458c5f; border-right: none; text-align: right; width: 100px; }        
+            .classes section span div button { font-size: 14px; padding: 6px 10px; border-radius: 0 5px 5px 0; cursor: pointer; background: #458c5f;
+            color: white; font-weight: 700; border: 1px solid #458c5f; }        
+          
+          
+          .classes .panels { width:100%; padding: 30px 0 60px 0; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 25px; }
+            .classes article { background: white; height: 212px; border-radius: 10px; padding: 0 20px; 
+            -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+            -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+            box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1); }
+          
+          .classes .panels h2 { font-weight: 400; padding-left: 3px; margin: 18px 0 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #424242; }
+          .classes .panels p { color: #989898; padding-left: 3px; font-size: 14px; margin: 6px 0 0 0; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+          
+          .classes .panels article h1 { color: #6d6d6d; background: #f3f3f3; margin: 37px 0 8px 0; letter-spacing: 0.5px; font-size: 18px; text-align: center; border-radius: 50px; height: 38px; padding-top: 8px; box-sizing: border-box; font-weight: 400; }
+          
+          .classes .panels article button { color: white; border: 0; background: #1caf53; width: 100%; font-size: 18px; text-align: center; border-radius: 50px; height: 38px; padding-top: 2px; box-sizing: border-box; font-weight: 700; cursor: pointer; letter-spacing: 0.3px;  }
+          
+          .classes .panels article button:focus { outline: none;    }
+          
+    @media screen and (max-width: 1023px) {
+        
+        header section { width: 100%; padding: 0 20px; box-sizing: border-box; }
+        header section h1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 80%; }
+        
+        .classes section { width:90%; }
+        .classes section span { display: block; }
+        .classes section span h1, .classes section span div  { text-align: center; }
+        .classes section span div p { text-align: center; margin-top: 20px; }
+        .classes section span div input, .classes section span div button { font-size: 18px; }
+        
+        .panels { display: block !important; max-width: 600px; margin: 0 auto;}
+        .panels article { margin-bottom: 20px;}
+        .panels article h2 { padding-top: 20px;}
+        
+    }
+          
+</style>    
+</head>
+​
+<body>
+    
+<header>
+    <section>
+        <img src="../images//logo.png">
+        <h1>Student Distance Learning portal</h1>
+    </section>
+</header>
+   
+<div class="classes">
+    <section>
+        <span>
+            <h1>Your active classes
+            <p>Enable Distance Learning by selecting a class</p></h1>    
+            <div>
+                <p>or input class code to join:</p>   
+                <input type="text" id="classCodeInput"><button id="joinButtonCode">Join</button>
+                <p id="infoCodeInput"></p>
+            </div>
+        </span>
+        
+        <div class="panels" id="panels">
+            
+        </div>
+        
+    </section>
+</div>
+​   
+<script src="../scripts/classJoin.js"></script>
+
+</body>

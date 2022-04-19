@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    </head>
+    
+<style>
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap'); */
+
+    body { background: #424242; margin: 0; font-family: 'Open Sans', sans-serif; }
+    
+    .cams { width: 100%; height: calc(100vh - 80px);}
+    
+    .controls { width: 100%; height: 80px; padding: 0 40px 10px 40px; box-sizing: border-box; }
+        .controls section { width:100%; height:70px; border-radius: 10px; padding-top: 12px; box-sizing: border-box; background: #171717; }
+        .controls section>div { width: 290px; height: auto; margin: 0 auto; }
+
+        #muteBtn, #unmuteBtn, #muteVideoBtn, #unmuteVideoBtn, #micDisabled { width:44px; margin: 0 6px; cursor: pointer;  } 
+    
+            #micDisabled { opacity: 0.5; }
+    
+        #raisehand { display: inline-block; height: 44px; margin-left: 20px; position: absolute; width: 143px; border-radius: 30px; cursor: pointer; background: dimgray; }   
+        #raisehand:hover { background: #7a7a7a; }
+            #raisehand p { margin: 12px 0 0 12px; color: lightgray; float: left; height: 30px; font-size: 14px; }
+            #raisehand p span { margin-right: 14px; transform-origin: 70% 70%; }
+    
+    
+        #micTxt, #camTxt, #micDisabledTxt { text-align: center; color: white; display: none; animation-duration: 0.3s; background: #171717; position: absolute; bottom:70px; padding: 3px 10px; border-radius: 20px;  
+            -webkit-animation: fadein 0.2s; /* Safari, Chrome and Opera > 12.1 */
+               -moz-animation: fadein 0.2s; /* Firefox < 16 */
+                -ms-animation: fadein 0.2s; /* Internet Explorer */
+                 -o-animation: fadein 0.2s; /* Opera < 12.1 */
+                    animation: fadein 0.2s;
+        }
+
+        #micTxt { width: 139px; margin-left: -49px;   }
+        #camTxt { width: 139px; margin-left: 10px; }
+        #micDisabledTxt { width: 115px; margin-left: -40px;  }
+    
+        @keyframes fadein { from { opacity: 0; bottom:60px; } to { opacity: 1; bottom:70px; }   }
+        /* Firefox < 16 */
+        @-moz-keyframes fadein { from { opacity: 0; bottom:60px; } to { opacity: 1; bottom:70px; }    }
+        /* Safari, Chrome and Opera > 12.1 */
+        @-webkit-keyframes fadein { from { opacity: 0; bottom:60px; } to { opacity: 1; bottom:70px; }  }
+        /* Internet Explorer */
+        @-ms-keyframes fadein { from { opacity: 0; bottom:60px; } to { opacity: 1; bottom:70px; }  }
+        /* Opera < 12.1 */
+        @-o-keyframes fadein { from { opacity: 0; bottom:60px; } to { opacity: 1; bottom:70px; }  }
+
+    .controls section article { position: absolute; margin: 12px 0 0 20px; }
+        .controls section article p { color: gray; margin: 0; font-size: 18px; }
+    
+    
+    .grid { display:grid; height: calc(100vh - 90px); padding: 20px 40px; box-sizing: border-box; grid-gap: 4px; }
+    
+    .grid li { background: #2d2d2d; list-style: none; text-align: center; border-radius: 0px; position: relative;
+        display:-ms-flexbox; -ms-flex-pack:center; -ms-flex-align:center;
+        display:-webkit-box; -webkit-box-pack:center; -webkit-box-align:center;
+        display:-moz-box; -moz-box-pack:center; -moz-box-align:center;
+        display:box; box-pack:center; box-align:center;
+    }
+    
+    .grid li span { position: absolute; font-size: 12px; font-weight: 600; color: white; background: rgba(0,0,0,0.33); max-width:100%; 
+        text-align: left; padding: 5px 8px 6px 8px; box-sizing: border-box; margin: 0; top: 0; 
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    
+    /*.grid li>img { width: 10%; max-width: 35px; position: absolute; bottom: 7px; right: 7px; cursor: pointer;  }*/
+    
+    .grid li video { background: #171717; max-width: 100%; max-height: 100%; position: absolute;} 
+    .grid li img { max-width: 50%; max-height: 50%; }
+    #noCameraImg { background-image: url("../images/nocam.svg"); background-repeat: no-repeat; max-width: 100%; max-height: 100%; } 
+
+    .dominant_speaker { outline: 2px solid lightgray; }
+    
+    .grid li:last-of-type span img { width: 11px; float: left; margin: 3px 7px 0 0;  }
+    
+    .disabled { opacity: 0.5; }
+
+    
+    /*480x360*/    
+    @media only screen and (min-width: 460px) { 
+        .grid { grid-template-columns: auto auto ;   }   
+        .grid li:last-of-type { grid-column: 2; } }
+    
+    /*720x480*/    
+    @media only screen and (min-width: 680px) { 
+        .grid { grid-template-columns: auto auto auto ;   } 
+        .grid li:last-of-type { grid-column: 3; }}
+    
+    /*1024x768*/    
+    @media only screen and (min-width: 1004px) { 
+        .grid { grid-template-columns: auto auto auto auto ;   }  
+    .grid li:last-of-type { grid-column: 4; }}
+    
+    /*1280x800*/    
+    @media only screen and (min-width: 1260px) { 
+        .grid { grid-template-columns: auto auto auto auto auto ;   }   
+    .grid li:last-of-type { grid-column: 5; }}
+
+    /*1920x1080*/    
+    @media only screen and (min-width: 1900px) { 
+        .grid { grid-template-columns: auto auto auto auto auto auto ;   }   
+    .grid li:last-of-type { grid-column: 6; }}
+    
+    /*2560x1080*/    
+    @media only screen and (min-width: 2540px) { 
+        .grid { grid-template-columns: auto auto auto auto auto auto auto ;   } 
+    .grid li:last-of-type { grid-column: 7; }}
+    
+    /*3840x2160*/    
+    @media only screen and (min-width: 3820px) { 
+        .grid { grid-template-columns: auto auto auto auto auto auto auto auto;   }  
+    .grid li:last-of-type { grid-column: 8; }}
+    
+    
+    
+    
+    .wave {
+        
+        background-image: url('../images/wave.svg'); width:20px; height:20px; float:left;
+        animation-name: wave-animation;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        transform-origin: 70% 70%;
+        display: inline-block;
+    }
+
+@keyframes wave-animation {
+    0% { transform: rotate(  0.0deg);  }
+   10% { transform: rotate(-20.0deg); }
+   20% { transform: rotate( 12.0deg) }
+   30% { transform: rotate(-20.0deg) }
+   40% { transform: rotate(  9.0deg) }
+   50% { transform: rotate(  0.0deg); }
+  100% { transform: rotate(  0.0deg); }
+}
+</style>
+
+<div class="cams">
+
+    <div class='grid'>
+        
+      <li id="liTeacher">  
+          <span class="liTeacher"> <img src="../images/teacher.svg"></span> 
+          <img src="../images/nocam.svg" id="noCameraImg" style="display: none;">
+      </li>
+
+    </div>
+    
+</div>
+    
+<div class="controls">
+    <section>
+        
+      <article>
+        <p id="classTitle"></p>
+      </article>
+        
+      <div>
+          <img src="../images/micOn.svg" id="muteBtn" style="display: none;" > <p id="micTxt">Toggle your audio</p>
+          <img src="../images/micOff.svg" id="unmuteBtn" style="display: none;">
+          
+          <img src="../images/micOff.svg" id="micDisabled" style="display: none;"> <p id="micDisabledTxt">Audio disabled</p>
+          
+
+          <img src="../images/camOn.svg" id="muteVideoBtn" > <p id="camTxt">Toggle your video</p>
+          <img src="../images/camOff.svg" id="unmuteVideoBtn" style="display: none;">
+
+          <div id="raisehand"><p><span class="wave"></span>Raise hand</p></div>
+      </div>
+        
+    </section>
+</div>
+
+<script src="../scripts/conference_grid.js"></script>
+</html>

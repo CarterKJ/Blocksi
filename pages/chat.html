@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blocksi Chat</title>
+
+    
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+*{  font-family: 'Roboto', sans-serif; 
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+      -webkit-touch-callout: none;
+    box-sizing: border-box; list-style-type: none; margin: 0;
+}
+    
+    
+body { margin: 0; background: #f1f1f1;}
+
+.scrolltobot::-webkit-scrollbar {
+    width: 11px; }
+    
+    #chatArea>p {
+      background: none;
+      color: gray !important;
+      padding: 0 !important;
+      text-align: center;
+      width: 100%;
+      font-size: 12px;
+    }
+    .scrolltobot::-webkit-scrollbar-thumb {
+    background: #bebebe; border-radius: 10px; }
+
+    .scrolltobot::-webkit-scrollbar-thumb:hover {
+    background: #a5a5a5;  }
+
+
+.chatWindow { max-width: 800px; height: 80vh; background: white; margin: 44px auto 0 auto; border-radius: 10px; border: 1px solid #dcdcdc;}
+    .chatWindow h1 { color: #3c4352; font-weight: 400; font-size: 1.125em; display: inline-block; margin: 15px 0 0 22px; }
+    .chatWindow article { display: grid; height: 100%; grid-template-columns: 1fr auto; grid-template-rows: 1fr 66px; }
+
+    .chatWindow article section { overflow-y: auto; overflow-x: hidden; grid-column: 1/3; grid-row: 1/2; padding: 14px 22px;  }
+            .timestampTeacher{
+              padding: 7px 13px 10px 12px;
+            }
+            .TeacherTxt { 
+              background: #e8eefd; color: #232323; padding: 7px 12px 10px 12px; border-radius: 5px; float: left; text-align: left; border-top-left-radius: 0; clear: both; margin-bottom: 12px;
+                word-wrap: break-word;
+                display:inline-block;
+                max-width: calc(100%);
+            }
+            span.TeacherTxt {
+              border: none !important;
+              background: none;
+              color: gray;
+              margin-bottom: 0;
+              padding-left: 0px;
+              font-size: 12px;
+              font-weight: bold;
+              padding-bottom: 5px;
+            }
+
+          .StudentTxt {
+              background: #4477f2; color: white; padding: 7px 12px 10px 12px; border-radius: 5px; float: right; text-align: right; border-top-right-radius: 0; clear: both; margin-bottom: 12px;
+              word-wrap: break-word;
+              display:inline-block;
+              max-width: calc(100%);
+          }
+          span.StudentTxt {
+            border: none !important;
+            background: none;
+            color: gray;
+            margin-bottom: 0;
+            font-size: 12px;
+            font-weight: bold;
+            padding-bottom: 5px !important;
+            padding-right: 0;
+          }
+    .chatWindow article input { grid-column: 1/2; grid-row: 2/3; 
+    border: 0; font-size: 1.125em; padding: 0 15px; outline: none; border-bottom-left-radius: 10px; border: 1px solid #dcdcdc; border-right: none;  }
+    .chatWindow article input:focus { outline: none;}
+    
+    .chatWindow article span { grid-column: 2/3; grid-row: 2/3; background: white; border-bottom-right-radius: 10px; border: 1px solid #dcdcdc; border-left: none; }
+    .chatWindow article span button { background: #ff9000; border: 0; border-radius: 50px; color: white; font-weight: bold; font-size: 1.25em; padding: 10px 25px; margin:10px 15px 0 0; cursor: pointer;}
+    .chatWindow article span button:hover { background: #ed6a01;}
+    .chatWindow article span button:focus { outline: none; background: #ed6a01;}
+    .chatWindow article span button:active { background: #e14c03;}
+    
+</style>
+</head>    
+<body>
+    
+<div class="chatWindow">
+    <h1><div id="classTitle"></div> <strong><div id="teacherName"></div></strong></h1>    
+    <article>
+
+        
+        <section class="scrolltobot" id="chatArea">
+              
+        </section>
+                
+            <input type="text" id="userInput" placeholder="Message your teacher here" autocomplete="off"/>  
+           <span><button id="btnSend">SEND</button></span>
+            
+    </article>
+    
+    
+</div>
+    
+</body>
+<script src="../scripts/browser-action.js"></script>
+<!--<script>
+    document.onreadystatechange = function () {
+  if(document.readyState === "complete"){
+    receiveFromTeacher();
+  }
+}
+</script>-->     
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Access denied</title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    
+<style>
+      body { margin: 0; font-family: Verdana, Geneva, sans-serif; background-color: #e3e3e3;}
+      
+      .foot { clear: both; position: relative;  z-index: 1; height: 3.5em; margin-top: -3.5em; }
+            .foot>img { width: 144px; margin: 0 auto; display: block; }
+      
+      .notice { background-color: white; border: 1px dotted gray; border-radius: 7px; margin: 22px auto 0 auto; padding: 44px 0 22px 0; max-width: 800px; text-align: center;}
+        .notice div { height: 100px; width: 500px; margin: 0 auto; }
+        .notice img { width: 66px; float: left;}
+        .notice h1 { font-size: 2.5em; color: #707070; float: left; margin: 7px 0 0 15px;}
+        .notice h4 { font-weight: 300; width: 80%; margin: 0 auto; text-align: left; padding: 10px 0 0 0; color: #636363; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .notice h4 a { color: #5c149f;}
+        .notice h4 strong { margin-right: 6px;}
+        .notice h4:nth-of-type(2) { border-bottom: 1px solid lightgray; padding-bottom: 44px;  }
+
+        .notice font { width: 400px; display: block; margin: 0 auto 30px auto; line-height: 150%;  }
+
+        .notice p:first-of-type { margin-top: 35px;}
+        .notice p { margin: 7px 0 0 0; color: gray; font-size: 0.9em;}
+        #modalBtn { color: #5c149f; cursor:pointer; text-decoration: underline;  }
+        .cpr { font-size: 0.75em; text-align: center; margin-top: 44px; color: #ababab;}
+
+      .modal { display: none; position: fixed;  z-index: 2; padding-top: 100px; left: 0; top: 0; width: 100%;  height: 100%; overflow: auto;  background-color: rgb(0,0,0);  background-color: rgba(0,0,0,0.4); }
+
+      .modal-content { background-color: white; border-radius: 7px; margin: auto; padding: 20px; max-width: 800px; box-sizing: border-box; }
+        .modal-content div { float: left; width: -webkit-calc(100% - 20px); width: -moz-calc(100% - 20px); width: calc(100% - 20px); }
+        .modal-content font { font-size: 0.85em; color: gray; text-align: center; width: 100%; display: block; margin: 5px auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+        .modal-content span { float: left; width: 20px; text-align: right;}
+    
+        .modal-content h4 { text-align: center; margin: 30px auto 12px auto; font-size: 0.95em;}
+        .modal-content .submit1 { background: #5c149f; border: 0; cursor: pointer; color: white; padding: 10px 0; width: 330px; margin: 4px auto 7px auto; display: block; border-radius: 5px; font-size: 1em; }
+        .modal-content form { background: #faf5ff; border-radius: 10px; width: 300px; margin: 0 auto; padding: 10px 15px; display: grid; grid-template-columns: 1fr; }
+        .modal-content form input { margin-right: 10px;}
+        .modal-content form label { cursor: pointer; font-size: 0.9em; grid-column: 1/2; padding: 5px 0;}
+        .modal-content p{ color: gray; margin: 0; text-align: center; font-size: 0.75em; }
+    
+      .close { color: #aaaaaa; float: right; font-size: 28px; font-weight: 300; }
+      .close:hover, .close:focus { color: #000; text-decoration: none; cursor: pointer; }
+  </style>
+    
+</head>
+
+<body>
+    
+<div class="notice">
+    <div><img src="../images/exclamation-mark.svg">
+    <h1>CLOSE OPEN TABS</h1></div> 
+
+    <font>We noticed the following page is open in your browser,please close it to continue. </font>
+
+    <h4><strong>URL:</strong><a href=""><span id="url"></span></a></h4>
+    <span id="hide">
+</div>
+ 
+    <p class="cpr">Copyright © 2016 | blocksi.net</p>
+    
+    
+<script src="../scripts/closePage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Access denied</title>
+    
+    <link rel="shortcut icon" type="image/png" href="../images/favicon_lock.png"/>
+    
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500');
+html { height: 100%; background: url(../images/bedroom.jpg); background-size: cover; background-position: center 42%; }
+    
+    * {font-family: 'Poppins', sans-serif; box-sizing: border-box; -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; }    
+    body { margin: 0; font-size: 21px; text-align: center;
+
+    -webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1.5s; /* Firefox < 16 */
+        -ms-animation: fadein 1.5s; /* Internet Explorer */
+         -o-animation: fadein 1.5s; /* Opera < 12.1 */
+            animation: fadein 1.5s;
+    }
+
+@keyframes fadein { from { opacity: 0; } to   { opacity: 1; } }
+@-moz-keyframes fadein { from { opacity: 0; } to   { opacity: 1; } }
+@-webkit-keyframes fadein { from { opacity: 0; } to   { opacity: 1; } }
+@-ms-keyframes fadein { from { opacity: 0; } to   { opacity: 1; } }
+@-o-keyframes fadein { from { opacity: 0; } to   { opacity: 1; } }
+    
+    article { background: white; max-width: 600px; color: #4477f2; padding: 22px; border-radius: 10px; margin: 7vh auto 0 auto; border-bottom: 2px solid #002850;
+    }
+    img { width: 10vh; margin-top: 5vh;}
+    h1 { margin: 0; color: white; font-size: 2.66em; font-weight: 400; letter-spacing: -1px;}
+    
+    article h3:first-of-type { font-size: 1.5em; margin: 0; font-weight: 400;  }
+    article h3 { font-size: 0.85em; color: #a0a0a0; font-weight: 500;  }
+    article h3 strong { background: #4477f2; margin: 0 10px; padding: 5px 15px 6px 15px; border-radius: 20px; color: white;}
+    article section img{ margin-top: 10vh; width: 20vh;}
+
+    
+    .footer { position: absolute; right: 0; bottom: 0; left: 0;  text-align: center; }
+    .footer a img { width: 15vh; margin-bottom: 2vh;}
+
+@media only screen and (max-width: 660px) {
+    h1 { font-size: 2em;}
+    article { width: 85%;}
+    article h3:nth-of-type(2) * { display: block; margin: 10px 0; }
+}
+</style> 
+</head>
+    
+<body> 
+    
+<img src="../images/keylock.svg">
+<h1>Access denied</h1>
+<article>    
+    <h3 id="bedtimelock">Bedtime lock is ON</h3>
+    <h3 id="fromtoid">FROM </span><strong><span id="from"></span></strong> TO <strong><span id="to"></span></strong></h3>
+</article>
+<div class="footer"><a href="https://www.blocksi.net/" target="_blank"><img src="../images/blocksiLogo.svg"></a></div>
+<script src="../scripts/bedTimeUpdate.js"></script>
+</body>
+</html>
+

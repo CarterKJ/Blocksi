@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Access denied</title>
+    <link rel="shortcut icon" type="images/gif" href="../images/favicon.png">
+    
+<style>
+      body { margin: 0; font-family: Verdana, Geneva, sans-serif; background-color: #e3e3e3;}
+      
+      .foot { clear: both; position: relative;  z-index: 1; height: 3.5em; margin-top: -3.5em; }
+            .foot>img { width: 144px; margin: 0 auto; display: block; }
+      
+      .notice { background-color: white; border: 1px dotted gray; border-radius: 7px; margin: 22px auto 0 auto; padding: 44px 0 0 0; max-width: 800px; text-align: center;}
+        .notice div { height: 100px; width: 450px; margin: 0 auto; }
+        .notice img { width: 66px; float: left;}
+        .notice h1 { font-size: 2.5em; color: #707070; float: left; margin: 7px 0 0 15px;}
+        .notice h4 { font-weight: 300; width: 80%; margin: 0 auto; text-align: left; padding: 10px 0 0 0; color: #636363; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .notice h4 a { color: #5c149f;}
+        .notice h4 strong { margin-right: 6px;}
+        .notice h4:nth-of-type(2) { border-bottom: 1px solid lightgray; padding-bottom: 44px;  }
+
+        .notice p:first-of-type { margin-top: 35px;}
+        .notice p { margin: 0; color: gray; font-size: 1.2em; line-height: 175%;}
+        .notice font { display: block; box-sizing: border-box; font-size: 1em; width: 100%; padding:20px 0; border-top: 1px dotted lightgray; margin: 64px 0 -19px 0; border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; color: #a2a2a2; background: #f4f4f4;}
+        #modalBtn { color: white; border-bottom: 2px solid #5c149f; font-size: 0.95em; padding: 2px 8px 3px 8px; border-radius: 5px; cursor:pointer; background: #b170ee; margin: 0 5px; }
+        #modalBtnRating { color: #5c149f; cursor:pointer; text-decoration: underline;  }
+
+        .cpr { font-size: 0.75em; text-align: center; margin-top: 44px; color: #ababab;}
+
+      .modal, .modal2 { display: none; position: fixed;  z-index: 2; padding-top: 100px; left: 0; top: 0; width: 100%;  height: 100%; overflow: auto;  background-color: rgb(0,0,0);  background-color: rgba(0,0,0,0.4); }
+
+      .modal-content, .modal-content2 { background-color: white; border-radius: 7px; margin: auto; padding: 20px; max-width: 800px; box-sizing: border-box; } .modal-content2 { max-width: 500px; background-color: #f4f4f4;}
+        .modal-content div, .modal-content2 div { float: left; width: -webkit-calc(100% - 20px); width: -moz-calc(100% - 20px); width: calc(100% - 20px); }
+        .modal-content font, .modal-content2 font { font-size: 0.85em; color: dimgray; text-align: center; width: 100%; display: block; margin: 5px auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+        .modal-content span, .modal-content2 span { width: 20px; text-align: right;}
+    
+        .modal-content h4, .modal-content2 h4 { text-align: center; margin: 30px auto 12px auto; font-size: 0.95em;}
+        .modal-content2 h4 { margin-top: 9px; font-size: 1.25em;}
+        .modal-content .submit1 { background: #b170ee; border-bottom: 2px solid #5c149f; cursor: pointer; color: white; padding: 10px 0; width: 330px; margin: 4px auto 7px auto; display: block; border-radius: 5px; font-size: 1em; }
+        .modal-content form { background: #faf5ff; border-radius: 10px; width: 300px; margin: 0 auto; padding: 10px 15px; display: grid; grid-template-columns: 1fr; }
+        .modal-content form input { margin-right: 10px;}
+        .modal-content form label { cursor: pointer; font-size: 0.9em; grid-column: 1/2; padding: 5px 0;}
+        .modal-content p{ color: gray; margin: 0; text-align: center; font-size: 0.75em; }
+      
+      .close, .close2 { color: #aaaaaa; float: right; font-size: 28px; cursor: pointer; font-weight: 300; }
+      .close:hover, .close2:focus { color: #000; text-decoration: none;  }
+    
+    .modal-content2 article { display: block; max-width: 400px; margin: 110px auto 0 auto; text-align: center; }
+    .modal-content2 article strong { font-size: 1em; font-weight: 400; }
+    .modal-content2 article select { text-indent: 5px; font-size: 1.25em; margin: 0 auto 10px auto; }
+    .modal-content2 article input { padding: 6px 0 8px 0; width: 310px;  border-radius: 5px;  background: #5c1e9c; border: 0; color: white; cursor: pointer; font-size: 1em; }
+  </style>
+    
+</head>
+
+<body>
+    
+<div class="notice">
+    <div><img src="../images/exclamation-mark.svg">
+    <h1>ACCESS DENIED</h1></div> 
+
+    <h4><strong>URL:</strong><a href=""><span id = "url"></span></a></h4>
+    <h4><strong>Category:</strong> <span id="cat"></span></h4>
+    <span id="hide">
+    <p>If you need access to this page,</p>
+        <p>you can <span id="modalBtn">send a request</span> to your administrator.</p></span>
+        <font>Do you think rating of this page is wrong? Request re-evaluation <span id="modalBtnRating">here.</span></font>
+    <br>
+</div>
+
+<p class="cpr">Copyright © 2019 | blocksi.net</p>
+    
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div>
+    <font><strong>Source: </strong><span id = "re-url"></span> </font>
+    <font><strong>Category: </strong><span id="cat-2"></span></font>
+    </div>
+    <span class="close">&times;</span>
+    <br><br>
+    <h4>Why do you want to access this page?</h4>
+    <form action="">
+        <label><input type="radio" name="reason" value="Educational purpose">Educational purpose</label>
+        <label><input type="radio" name="reason" value="Teacher request">Teacher request</label>
+        <label><input type="radio" name="reason" value="Parent request">Parent request</label>
+        <label><input type="radio" name="reason" value="Other">Other</label>
+    </form>
+    <input class="submit1" type="submit" id ="submitbtn" value="SEND REQUEST">
+    <p>Your student ID will be recorded.</p>
+  </div>
+</div>
+    
+<!-- Modal -->
+<div id="myModal2" class="modal2">
+    <div class="modal-content2">
+        <div>
+        <h4>URL Re-evaluation request</h4>
+        <font><strong>URL: </strong><span id = "ratingurl" placeholder="http://" ></span> </font>
+        <font><strong>Current category:</strong><span id="re-cat-cur" placeholder="Adult"></span></font>
+        </div><span class="close2">&times;</span>
+        <article>
+          <select class="form-control" id="re-cat-req">
+            <option value="" disabled selected>Select a suitable category for this URL</option>
+              <optgroup label="Security Risk">
+                  <option value="Malicious Websites">Malicious Websites</option>
+                  <option value="Phishing">Phishing</option>
+                  <option value="Spam URLs">Spam URLs</option>
+              </optgroup>
+              <optgroup label="Unethical">
+                  <option value="Drug Abuse">Drug Abuse</option>
+                  <option value="Hacking">Hacking</option>
+                  <option value="Illegal or Unethical">Illegal or Unethical</option>
+                  <option value="Discrimination">Discrimination</option>
+                  <option value="Explicit Violence">Explicit Violence</option>
+                  <option value="Extremist Groups">Extremist Groups</option>
+                  <option value="Proxy Avoidance">Proxy Avoidance</option>
+                  <option value="Plagiarism">Plagiarism</option>
+                  <option value="Child Abuse">Child Abuse</option>
+              </optgroup>
+              <optgroup label="Adult Content">
+                  <option value="Alternative Beliefs">Alternative Beliefs</option>
+                  <option value="Abortion">Abortion</option>
+                  <option value="Other Adult Materials">Other Adult Materials</option>
+                  <option value="Advocacy Organizations">Advocacy Organizations</option>
+                  <option value="Gambling">Gambling</option>
+                  <option value="Nudity and Risque">Nudity and Risque</option>
+                  <option value="Pornography">Pornography</option>
+                  <option value="Dating">Dating</option>
+                  <option value="Weapons (sales)">Weapons (sales)</option>
+                  <option value="Marijuana">Marijuana</option>
+                  <option value="Sex Education">Sex Education</option>
+                  <option value="Alcohol">Alcohol</option>
+                  <option value="Tobacco">Tobacco</option>
+                  <option value="Lingerie and Swimsuit">Lingerie and Swimsuit</option>
+                  <option value="Sports Hunting and War Games">Sports Hunting and War Games</option>
+              </optgroup>
+              <optgroup label="Bandwidth Consuming">
+                  <option value="Freeware and Software Downloads">Freeware and Software Downloads</option>
+                  <option value="File Sharing and Storage">File Sharing and Storage</option>
+                  <option value="Streaming Media and Download">Streaming Media and Download</option>
+                  <option value="Peer-to-peer File Sharing">Peer-to-peer File Sharing</option>
+                  <option value="Internet Radio and TV">Internet Radio and TV</option>
+                  <option value="Internet Telephony">Internet Telephony</option>
+              </optgroup>
+              <optgroup label="Business">
+                  <option value="Finance and Banking">Finance and Banking</option>
+                  <option value="Search Engines and Portals">Search Engines and Portals</option>
+                  <option value="General Organizations">General Organizations</option>
+                  <option value="Business">Business</option>
+                  <option value="Information and Computer Security">Information and Computer Security</option>
+                  <option value="Government and Legal Organizations">Government and Legal Organizations</option>
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Armed Forces">Armed Forces</option>
+                  <option value="Web Hosting">Web Hosting</option>
+                  <option value="Secure Websites">Secure Websites</option>
+                  <option value="Web-based Applications">Web-based Applications</option>
+              </optgroup>
+              <optgroup label="Personal">
+                  <option value="Advertising">Advertising</option>
+                  <option value="Brokerage and Trading">Brokerage and Trading</option>
+                  <option value="Games">Games</option>
+                  <option value="Web-based Email">Web-based Email</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Arts and Culture">Arts and Culture</option>
+                  <option value="Education">Education</option>
+                  <option value="Health and Wellness">Health and Wellness</option>
+                  <option value="Job Search">Job Search</option>
+                  <option value="Medicine">Medicine</option>
+                  <option value="News and Media">News and Media</option>
+                  <option value="Social Networking">Social Networking</option>
+                  <option value="Political Organizations">Political Organizations</option>
+                  <option value="Reference">Reference</option>
+                  <option value="Global Religion">Global Religion</option>
+                  <option value="Shopping and Auction">Shopping and Auction</option>
+                  <option value="Society and Lifestyles">Society and Lifestyles</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Travel">Travel</option>
+                  <option value="Personal Vehicles">Personal Vehicles</option>
+                  <option value="Dynamic Content">Dynamic Content</option>
+                  <option value="Meaningless Content">Meaningless Content</option>
+                  <option value="Folklore">Folklore</option>
+                  <option value="Web Chat">Web Chat</option>
+                  <option value="Instant Messaging">Instant Messaging</option>
+                  <option value="Newsgroups and Message Boards">Newsgroups and Message Boards</option>
+                  <option value="Digital Postcards">Digital Postcards</option>
+                  <option value="Child Education">Child Education</option>
+                  <option value="Real Estate">Real Estate</option>
+                  <option value="Restaurant and Dining">Restaurant and Dining</option>
+                  <option value="Personal Websites and Blogs">Personal Websites and Blogs</option>
+                  <option value="Content Servers">Content Servers</option>
+                  <option value="Domain Parking">Domain Parking</option>
+                  <option value="Personal Privacy">Personal Privacy</option>
+              </optgroup>
+            </select>
+          <div class="g-recaptcha pull-right" data-sitekey="6Lcd7xMTAAAAAFgWZ4GaOGRmzp6nuoK9q2kLDmuK"></div>
+
+          <input class="submit2" type="submit" id ="sendReCatReq" value="SEND RE-EVALUATION REQUEST">
+          <a href=""><span id = "error"></span></a>
+        </article>
+    </div>
+</div>
+    
+<script src="../scripts/blockPage.js"></script>
+</body>
+
+</html>
+

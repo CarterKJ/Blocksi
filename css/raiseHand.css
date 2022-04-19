@@ -1,0 +1,98 @@
+@keyframes wave-animation {
+    0% { transform: rotate( 45.0deg) }
+   10% { transform: rotate(59.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(37.0deg) }
+   30% { transform: rotate(59.0deg) }
+   40% { transform: rotate(41.0deg) }
+   50% { transform: rotate(55.0deg) }
+   60% { transform: rotate( 45.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 45.0deg) }
+}
+
+.raiseMyHand { position: fixed; bottom: 15px; right: 15px;
+    z-index: 999999; cursor:pointer; }
+.raiseMyHand>div {  width: 50px; height: 50px; margin: 0 auto;
+cursor: pointer; background: #466adc; border-radius: 110px; }
+
+/* .waveHand se doda na .handy ko pomaha*/
+.fadeInHand { 
+    /* animation-name: wave-animation;  
+    animation-duration: 2.5s;   
+    animation-iteration-count: 3;  
+    transform-origin: 35px 35px;
+    animation-delay: -0.15s;  */
+    animation: fadeInHand 0.75s infinite alternate;
+}
+
+.changeBgHand { background: rgb(255,255,255) !important;
+  background: radial-gradient(circle, rgba(255,255,255,1) 33%, rgba(193,225,254,1) 81%, rgba(153,207,253,1) 100%) !important;}
+
+@keyframes fadeInHand { 
+  from { opacity: 0.5; } 
+}
+
+/*.disableHand se doda na .raiseMyHand ko neha mahati */
+.disableHand { opacity: 0.5; pointer-events: none; }
+
+.menuG-item, .menuG-open-button { background: white; border:2px solid #71BBFD !important;  border-radius: 100%; width: 80px;
+    height: 80px; margin-left: -40px !important; position: absolute; top: 20px; text-align: center;
+    transform: translate3d(0, 0, 0); transition: transform ease-out 200ms; cursor: pointer !important; }
+  
+  .menuG-open { display: none; }
+  .hamburger { width: 25px; height: 4px; background: #498ffc; display: block;
+    position: absolute !important; top: 50%; left: 50%; margin-left: -12.5px; margin-top: -1.5px;
+    transition: transform 200ms; }
+  
+  .hamburger-1 { transform: rotate(90deg); }
+  .hamburger-2 { transform: translate3d(0, 0, 0); }
+  
+  .menuG-open:checked + .menuG-open-button .hamburger-1 {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+  }
+  .menuG-open:checked + .menuG-open-button .hamburger-2 {
+    transform: translate3d(0, 0, 0) rotate(-45deg);
+  }
+  
+  .menuG { position: fixed; width: 600px; height: 120px; bottom: 250px; margin: 0 -250px 0 0; right: 0px; z-index: 999999 !important;
+    box-sizing: border-box; font-size: 20px; text-align: left; transform: rotate(270deg) scale(0.85, 0.85) !important; }
+  
+  .menuG-item:hover { background: white; }
+  .menuG-item:nth-child(3) { transition-duration: 180ms; }
+  .menuG-item:nth-child(4) { transition-duration: 180ms; }
+  .menuG-item:nth-child(5) { transition-duration: 180ms; }
+  .menuG-item:nth-child(6) { transition-duration: 180ms; }
+  
+  .menuG .menuG-item:first-of-type img { transform: rotate(90deg); width: 70px; margin: 6px -3px 0 0; } 
+  .menuG .menuG-item:last-of-type img {  transform: rotate(90deg); width: 68px; margin: 6.5px -1px 0 0; } 
+  
+  .menuG-open-button { z-index: 2; transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-duration: 400ms; transform: scale(1.1, 1.1) translate3d(0, 0, 0); cursor: pointer; }
+    
+  .menuG-open-button:hover {
+    transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+  }
+  .menuG-open:checked + .menuG-open-button {
+    transition-timing-function: linear;
+    transition-duration: 200ms;
+    transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+  }
+  .menuG-open:checked ~ .menuG-item {
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .menuG-open:checked ~ .menuG-item:nth-child(3) {
+    transition-duration: 190ms;
+    transform: translate3d(110px, 0, 0);
+  }
+  .menuG-open:checked ~ .menuG-item:nth-child(4) {
+    transition-duration: 290ms;
+    transform: translate3d(220px, 0, 0);
+  }
+  .menuG-open:checked ~ .menuG-item:nth-child(5) {
+    transition-duration: 390ms;
+    transform: translate3d(330px, 0, 0);
+  }
+  .menuG-open:checked ~ .menuG-item:nth-child(6) {
+    transition-duration: 490ms;
+    transform: translate3d(440px, 0, 0);
+  }
+  

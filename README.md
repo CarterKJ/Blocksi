@@ -1,6 +1,9 @@
 # About this repository
 This is an archive of the official Blocksi Enterprise Edition Chrome extension. The code has been beautified to make it more readable.
 
+# Legal disclaimer
+The maintainers of this repository do not take responsibility for the usage or content of this code. It is provided to you "as is", with no expectation of proofreading on behalf of the maintainers. If you have any questions or concerns, feel free to message us.
+
 # FAQ
 ### Copied/modified from the unreleased Blocksi documentation effort
 
